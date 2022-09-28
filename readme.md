@@ -1,4 +1,4 @@
-This is a basic application that illustrates how to use rtsp-relay with Dockerized rtsp-simple-server acting as an RTSP stream proxy.
+This is a basic application that illustrates how to use rtsp-relay with Dockerized rtsp-simple-server acting as an RTSP stream proxy running under Express.
 
 #### VSCode
 
