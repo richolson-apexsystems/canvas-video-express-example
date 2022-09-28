@@ -34,17 +34,20 @@ app.get('/', (req, res) =>
     
     loadPlayer({
       
-       // here we are specifiying the rtsp proxy url - this is being streamed from our local rtsp-simple-server instance no matter
-       // where the actual camera comes from. All url's called in client code will always start like this: rtsp://localhost:8554/
-       // Then we add our room identifier, so something like room300 would be: rtsp://localhost:8554/room300 
-       // it is important to note: the rtsp-simple-server.yml file already has our a url defined that will work with the other values
-       // defined in this app. The following is already defined in yml file: 
-       paths: 
-        room300:
-          source: "rtsp://localhost:8554/profile2/media.smp" 
-       // we must modify this file each time we add or remove an rtsp camera url. 
-       // rtsp-relay module gives us the ability to pass a parameter from client to server so we use that to pass our room name by
-       // constructing our url in client as follows: rtsp://localhost:8554/${roomName}      
+      /**     
+        here we are specifiying the rtsp proxy url - this is being streamed from our local rtsp-simple-server instance no matter
+        where the actual camera comes from. All url's called in client code will always start like this: rtsp://localhost:8554/
+        Then we add our room identifier, so something like room300 would be: rtsp://localhost:8554/room300 
+        it is important to note: the rtsp-simple-server.yml file already has our a url defined that will work with the other values
+        defined in this app. The following is already defined in yml file: 
+        paths: 
+          room300:
+            source: "rtsp://localhost:8554/profile2/media.smp" 
+        we must modify this file each time we add or remove an rtsp camera url. 
+        rtsp-relay module gives us the ability to pass a parameter from client to server so we use that to pass our room name by
+        constructing our url in client as follows: rtsp://localhost:8554/${roomName}    
+      */ 
+      
       url: 'ws://' + location.host + '/api/stream/${roomName}',
       canvas: document.getElementById('canvas'),
       onDisconnect: () => console.log('Connection lost!') 

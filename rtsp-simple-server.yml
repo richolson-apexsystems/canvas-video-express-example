@@ -155,7 +155,7 @@ hlsTrustedProxies: []
 # another entry.
 paths:
   room300:
-    source: "rtsp://localhost:8554/profile2/media.smp" 
+    source: "rtsp://home.zenzig.com:8554/profile2/media.smp" 
     sourceProtocol: tcp
     # url of the source stream, in the format rtsp://user:pass@host:port/path
     
